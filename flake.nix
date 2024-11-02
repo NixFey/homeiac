@@ -13,7 +13,7 @@
             ./machines/pi1/configuration.nix
             agenix.nixosModules.default
           ];
-        specialArgs = { inputs = { agenix = inputs.agenix; }; };
+        specialArgs = { inherit inputs; };
       };
     };
 

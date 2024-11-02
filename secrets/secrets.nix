@@ -5,4 +5,5 @@ in
 {
   "pi1-op-password.age".publicKeys = [ pi1 ];
   "ssid-info.age".publicKeys = sbcs;
+  "tandoor-secrets.age".publicKeys = [ pi1 ];
 }
