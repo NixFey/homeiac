@@ -6,7 +6,7 @@
   };
 
   age.secrets = {
-    "tandoor-secrets".file = ../../secrets/tandoor-secrets.age;
+    # "tandoor-secrets".file = ../../secrets/tandoor-secrets.age;
   };
 
   virtualisation.oci-containers.backend = "podman";
