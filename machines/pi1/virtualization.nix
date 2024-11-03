@@ -27,22 +27,22 @@
         # "-v /run/dbus:/run/dbus:ro" # Required only if using bluetooth
       ];
     };
-    tandoor = {
-      image = "vabene1111/recipes";
-      autoStart = true;
-      volumes = [
-        "tandoor-static:/opt/recipes/staticfiles"
-        "tandoor-media:/opt/recipes/mediafiles"
-      ];
-      ports = [ "8030:8080" ];
-      environment = {
-        # SECRET_KEY Filled by tandoor-secrets
-        DB_ENGINE = "django.db.backends.sqlite3";
-        REMOTE_USER_AUTH = "1";
-        TZ = "America/Detroit";
-      };
-      environmentFiles = [ config.age.secrets."tandoor-secrets".path ];
-    };
+    # tandoor = {
+    #   image = "vabene1111/recipes";
+    #   autoStart = true;
+    #   volumes = [
+    #     "tandoor-static:/opt/recipes/staticfiles"
+    #     "tandoor-media:/opt/recipes/mediafiles"
+    #   ];
+    #   ports = [ "8030:8080" ];
+    #   environment = {
+    #     # SECRET_KEY Filled by tandoor-secrets
+    #     DB_ENGINE = "django.db.backends.sqlite3";
+    #     REMOTE_USER_AUTH = "1";
+    #     TZ = "America/Detroit";
+    #   };
+    #   environmentFiles = [ config.age.secrets."tandoor-secrets".path ];
+    # };
   };
 
   systemd.services."${config.virtualisation.oci-containers.backend}-home-assistant-volumes" = {

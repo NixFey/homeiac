@@ -2,6 +2,7 @@
 {
   imports = [
     ./virtualization.nix
+    ./mealie.nix
     ../../modules/raspberry-pi-3.nix
   ];
 
