@@ -15,6 +15,7 @@
       TZ = "America/Detroit";
       WEB_CONCURRENCY = "1";
       BASE_URL = "https://cook.h.tspi.io";
+      LOG_LEVEL = "DEBUG";
     };
     environmentFiles = [ config.age.secrets."mealie-secrets".path ];
   };
