@@ -11,7 +11,7 @@
     # nixpkgs has been pinned to 2.18 for a long time since newer versions have
     # been buggy. Let's try newer versions and be on the bleeding eedge
     # Should be 2.23.2 as of 2021-07-12
-    package = pkgs.unstable.nixVersions.latest;
+    # package = pkgs.unstable.nixVersions.latest;
 
     nixPath = ["nixpkgs=/etc/nixpkgs" "nixos-config=/etc/nixos/configuration.nix"];
 
