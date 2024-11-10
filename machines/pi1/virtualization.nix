@@ -45,12 +45,10 @@
     # };
   };
 
-  systemd.services."${config.virtualisation.oci-containers.backend}-home-assistant-volumes" = {
-    script = ''
-      mkdir -p /conf/homeassistant/config || true;
-    '';
-    before = ["${config.virtualisation.oci-containers.backend}-home-assistant.service"];
-    wantedBy = ["${config.virtualisation.oci-containers.backend}-home-assistant.service"];
+  systemd.tmpfiles.settings."10-homeassistant" = {
+    "/conf/homeassistant/config".d = {
+      mode = "0700";
+    };
   };
 
   networking.firewall = {

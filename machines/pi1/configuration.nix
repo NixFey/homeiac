@@ -3,6 +3,7 @@
   imports = [
     ./virtualization.nix
     ./mealie.nix
+    ./rtlsdr.nix
     ../../modules/nix.nix
     ../../modules/raspberry-pi-3.nix
   ];
@@ -49,8 +50,8 @@
     systemd.timers."healthcheck" = {
       wantedBy = [ "timers.target" ];
         timerConfig = {
-          OnBootSec = "1m";
-          OnUnitActiveSec = "1m";
+          OnBootSec = "5m";
+          OnUnitActiveSec = "5m";
           Unit = "healthcheck.service";
         };
     };
