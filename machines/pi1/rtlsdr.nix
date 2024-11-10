@@ -54,6 +54,31 @@ in {
   systemd.tmpfiles.settings."10-rtlsdr-airband" = {
     "/conf/rtlsdr-airband/mp3".d = {
       mode = "0755";
+      user = "op";
+      group = "users";
+    };
+  };
+
+  services.samba = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      global = {
+        "workgroup" = "ASDF";
+        "server string" = "pi1";
+        "netbios name" = "pi1";
+        "security" = "user";
+      };
+      "mp3" = {
+        "path" = "/conf/rtlsdr-airband/mp3";
+        "browseable" = "yes";
+        "read only" = "no";
+        "guest ok" = "no";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "op";
+        "force group" = "users";
+      };
     };
   };
 }
