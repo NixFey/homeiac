@@ -17,7 +17,7 @@
       ports = [ "8020:80" ];
     };
     home-assistant = {
-      image = "ghcr.io/home-assistant/home-assistant:2024.10.4";
+      image = "ghcr.io/home-assistant/home-assistant:2024.11.2";
       autoStart = true;
       volumes = [ "/conf/homeassistant/config:/config" ];
       extraOptions = [
