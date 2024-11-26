@@ -23,7 +23,7 @@ let
             {
               type = "file";
               directory = "/conf/rtlsdr-airband/mp3";
-              filename_template = "DPM";
+              filename_template = "";
               split_on_transmission = true;
               append = true;
               dated_subdirectories = true;
@@ -66,6 +66,7 @@ in {
       global = {
         "workgroup" = "ASDF";
         "max protocol" = "SMB3";
+        "min protocol" = "SMB3";
         "server string" = "pi1";
         "netbios name" = "pi1";
         "security" = "user";
