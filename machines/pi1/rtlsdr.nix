@@ -65,6 +65,7 @@ in {
     settings = {
       global = {
         "workgroup" = "ASDF";
+        "max protocol" = "SMB3";
         "server string" = "pi1";
         "netbios name" = "pi1";
         "security" = "user";
