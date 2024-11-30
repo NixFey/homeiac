@@ -23,7 +23,7 @@ let
             {
               type = "file";
               directory = "/conf/rtlsdr-airband/mp3";
-              filename_template = "";
+              filename_template = "D";
               split_on_transmission = true;
               append = true;
               dated_subdirectories = true;
