@@ -4,18 +4,6 @@
 let
   configFile = pkgs.writeText "airband-config.conf" ''
     localtime = true;
-    mixers: {
-      dpmMixer: {
-        outputs: ({
-          type = "file";
-          directory = "/conf/rtlsdr-airband/mp3";
-          filename_template = "D";
-          split_on_transmission = true;
-          append = true;
-          dated_subdirectories = true;
-        })
-      }
-    }
     devices:
     ({
       type = "rtlsdr";
@@ -33,8 +21,12 @@ let
           highpass = 100;
           outputs: (
             {
-              type = "mixer";
-              name = "dpmMixer";
+              type = "file";
+              directory = "/conf/rtlsdr-airband/mp3";
+              filename_template = "D";
+              split_on_transmission = true;
+              append = true;
+              dated_subdirectories = true;
               ampfactor = 2.0;
             }
           );
