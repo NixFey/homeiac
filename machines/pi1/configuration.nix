@@ -4,6 +4,7 @@
     ./virtualization.nix
     ./mealie.nix
     ./rtlsdr.nix
+    ./home-assistant.nix
     ../../modules/nix.nix
     ../../modules/raspberry-pi-3.nix
   ];

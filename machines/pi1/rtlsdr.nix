@@ -4,6 +4,18 @@
 let
   configFile = pkgs.writeText "airband-config.conf" ''
     localtime = true;
+    mixers: {
+      dpmMixer: {
+        outputs: ({
+          type = "file";
+          directory = "/conf/rtlsdr-airband/mp3";
+          filename_template = "D";
+          split_on_transmission = true;
+          append = true;
+          dated_subdirectories = true;
+        })
+      }
+    }
     devices:
     ({
       type = "rtlsdr";
@@ -21,12 +33,9 @@ let
           highpass = 100;
           outputs: (
             {
-              type = "file";
-              directory = "/conf/rtlsdr-airband/mp3";
-              filename_template = "D";
-              split_on_transmission = true;
-              append = true;
-              dated_subdirectories = true;
+              type = "mixer";
+              name = "dpmMixer";
+              ampfactor = 2.0;
             }
           );
         }
@@ -59,28 +68,16 @@ in {
     };
   };
 
-  services.samba = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      global = {
-        "workgroup" = "ASDF";
-        "max protocol" = "SMB3";
-        "min protocol" = "SMB3";
-        "server string" = "pi1";
-        "netbios name" = "pi1";
-        "security" = "user";
-      };
-      "mp3" = {
-        "path" = "/conf/rtlsdr-airband/mp3";
-        "browseable" = "yes";
-        "read only" = "no";
-        "guest ok" = "no";
-        "create mask" = "0644";
-        "directory mask" = "0755";
-        "force user" = "op";
-        "force group" = "users";
-      };
-    };
+  virtualisation.oci-containers.containers."audiobrowser" = {
+    image = "ghcr.io/nixfey/audiobrowser:sha-951a822";
+    autoStart = true;
+    volumes = [
+      "/conf/rtlsdr-airband/mp3:/files"
+    ];
+    user = "root";
+    ports = [ "8080:8080" ];
+    extraOptions = [
+      "--privileged"
+    ];
   };
 }
