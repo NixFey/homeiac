@@ -27,7 +27,6 @@ let
               split_on_transmission = true;
               append = true;
               dated_subdirectories = true;
-              ampfactor = 2.0;
             }
           );
         }
