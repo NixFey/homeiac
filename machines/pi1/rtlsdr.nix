@@ -60,7 +60,7 @@ in {
   };
 
   virtualisation.oci-containers.containers."audiobrowser" = {
-    image = "ghcr.io/nixfey/audiobrowser:sha-c033090";
+    image = "ghcr.io/nixfey/audiobrowser:sha-7ced080";
     autoStart = true;
     volumes = [
       "/conf/rtlsdr-airband/mp3:/files"
