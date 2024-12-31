@@ -60,13 +60,16 @@ in {
   };
 
   virtualisation.oci-containers.containers."audiobrowser" = {
-    image = "ghcr.io/nixfey/audiobrowser:sha-951a822";
+    image = "ghcr.io/nixfey/audiobrowser:sha-c033090";
     autoStart = true;
     volumes = [
       "/conf/rtlsdr-airband/mp3:/files"
     ];
+    environment = {
+      FILES_BASE_PATH = "/files";
+    };
     user = "root";
-    ports = [ "8080:8080" ];
+    ports = [ "8080:3000" ];
     extraOptions = [
       "--privileged"
     ];
