@@ -1,12 +1,13 @@
 { config, pkgs, lib, inputs, ... }:
 {
   imports = [
+    ../../modules/nix.nix
+    ../../modules/raspberry-pi-3.nix
+
     ./virtualization.nix
     ./mealie.nix
     ./rtlsdr.nix
     ./home-assistant.nix
-    ../../modules/nix.nix
-    ../../modules/raspberry-pi-3.nix
   ];
 
   config = {
@@ -28,10 +29,6 @@
       };
     };
 
-    environment.systemPackages = [ pkgs.vim inputs.agenix.packages."aarch64-linux".default pkgs.curl ];
-
-    services.openssh.enable = true;
-
     users = {
       mutableUsers = false;
       users.op = {
@@ -45,8 +42,6 @@
     };
 
     security.sudo.wheelNeedsPassword = false;
-
-    hardware.enableRedistributableFirmware = true;
 
     systemd.timers."healthcheck" = {
       wantedBy = [ "timers.target" ];

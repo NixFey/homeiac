@@ -9,6 +9,12 @@
 
   system.autoUpgrade.enable = true;
 
+  environment.systemPackages = [ pkgs.vim inputs.agenix.packages."aarch64-linux".default pkgs.curl ];
+
+  services.openssh.enable = true;
+
+  hardware.enableRedistributableFirmware = true;
+
   # Point nixpath to that nixpkgs so that the system uses the same nix
   nix = {
     # nixpkgs has been pinned to 2.18 for a long time since newer versions have
