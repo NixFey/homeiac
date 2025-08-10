@@ -36,7 +36,7 @@ let
   '';
 in {
   virtualisation.oci-containers.containers."rtlsdr-airband" = {
-    image = "ghcr.io/charlie-foxtrot/rtlsdr-airband:latest";
+    image = "ghcr.io/rtl-airband/rtlsdr-airband:v5.1.1";
     autoStart = true;
     volumes = [
       "/conf/rtlsdr-airband/mp3:/conf/rtlsdr-airband/mp3"
@@ -60,7 +60,7 @@ in {
   };
 
   virtualisation.oci-containers.containers."audiobrowser" = {
-    image = "ghcr.io/nixfey/audiobrowser:sha-bd0b24f";
+    image = "ghcr.io/nixfey/audiobrowser:sha-cbbe397";
     autoStart = true;
     volumes = [
       "/conf/rtlsdr-airband/mp3:/files"
