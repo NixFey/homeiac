@@ -1,6 +1,6 @@
 { pkgs, config, ... }: {
   virtualisation.oci-containers.containers.home-assistant = {
-    image = "ghcr.io/home-assistant/home-assistant:2025.7.1";
+    image = "ghcr.io/home-assistant/home-assistant:2025.8.3";
     autoStart = true;
     volumes = [ "/conf/homeassistant/config:/config" ];
     extraOptions = [
