@@ -5,7 +5,7 @@
   };
 
   virtualisation.oci-containers.containers.mealie = {
-    image = "ghcr.io/mealie-recipes/mealie:v2.4.1";
+    image = "ghcr.io/mealie-recipes/mealie:v3.1.2";
     autoStart = true;
     volumes = [
       "mealie-data:/app/data/"
