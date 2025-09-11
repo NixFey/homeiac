@@ -9,7 +9,7 @@
 
   system.autoUpgrade.enable = true;
 
-  environment.systemPackages = [ pkgs.vim inputs.agenix.packages."aarch64-linux".default pkgs.curl ];
+  environment.systemPackages = [ pkgs.vim inputs.agenix.packages."aarch64-linux".default pkgs.curl pkgs.htop ];
 
   services.openssh.enable = true;
 

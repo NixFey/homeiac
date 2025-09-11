@@ -9,7 +9,7 @@ let
       type = "rtlsdr";
       mode = "scan";
       index = 0;
-      gain = 25;
+      gain = 20;
       centerfreq = 120.0;
       correction = 48;
       channels:
@@ -17,8 +17,8 @@ let
         {
           freqs = ( 939.15 );
           modulation = "nfm";
-          lowpass = 3200;
-          highpass = 100;
+          // lowpass = 3200;
+          // highpass = 100;
           outputs: (
             {
               type = "file";
