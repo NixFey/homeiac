@@ -9,7 +9,7 @@ let
       type = "rtlsdr";
       mode = "scan";
       index = 0;
-      gain = 10;
+      gain = 25;
       centerfreq = 120.0;
       correction = 48;
       channels:
@@ -36,7 +36,8 @@ let
   '';
 in {
   virtualisation.oci-containers.containers."rtlsdr-airband" = {
-    image = "ghcr.io/rtl-airband/rtlsdr-airband:v5.1.1";
+    # image = "ghcr.io/rtl-airband/rtlsdr-airband:v5.1.1";
+    image = "ghcr.io/charlie-foxtrot/rtlsdr-airband:v5.0.12";
     autoStart = true;
     volumes = [
       "/conf/rtlsdr-airband/mp3:/conf/rtlsdr-airband/mp3"
