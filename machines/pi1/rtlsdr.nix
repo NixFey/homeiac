@@ -9,7 +9,7 @@ let
       type = "rtlsdr";
       mode = "scan";
       index = 0;
-      gain = 20;
+      gain = 10;
       centerfreq = 120.0;
       correction = 48;
       channels:
